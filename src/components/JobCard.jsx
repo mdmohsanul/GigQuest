@@ -27,15 +27,15 @@ const JobCard = ({ job }) => {
             {job?.jobType}
           </p>
         </div>
-        <div className="w-full flex gap-3">
+        <div className="w-full flex flex-col md:flex-row gap-3">
           <button
-            className="bg-blue-600 hover:bg-blue-700 text-white cursor-pointer rounded-md py-2 w-2/4"
+            className="bg-blue-600 hover:bg-blue-700 text-white cursor-pointer rounded-md py-2 w-full md:w-2/4"
             onClick={() => navigate(`/jobDetails/${job._id}`)}
           >
             See Details
           </button>
           <button
-            className="bg-red-600 hover:bg-red-700 text-white cursor-pointer rounded-md py-2 w-2/4"
+            className="bg-red-600 hover:bg-red-700 text-white cursor-pointer rounded-md py-2 w-full md:w-2/4"
             onClick={() => deleteHandler(job._id)}
           >
             Delete
