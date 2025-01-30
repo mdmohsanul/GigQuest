@@ -23,7 +23,7 @@ const Header = () => {
   }, [searchTerm]);
   return (
     <>
-      <div className="w-full bg-blue-600 text-white h-14 md:h-16 fixed top-0">
+      <div className="w-full bg-blue-600 text-white h-14 md:h-16 fixed top-0 z-20">
         <div className="max-w-6xl mx-auto  ">
           <div className="flex items-center justify-between md:justify-start py-3 gap-11 px-5 md:px-0">
             <Link to="/">

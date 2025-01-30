@@ -2,16 +2,20 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { deleteJob } from "../feature/jobSlice";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 
 const JobCard = ({ job }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const deleteHandler = (jobId) => {
     dispatch(deleteJob(jobId));
+    toast.error("Job deleted successfully!");
   };
   return (
     <>
       <div className="p-5 w-80 border border-gray-300 rounded-md">
+        <ToastContainer />
         <div className="flex flex-col gap-4 pb-4">
           <h1 className="text-xl font-medium">{job?.jobTitle}</h1>
           <p className="truncate">
