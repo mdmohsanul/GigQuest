@@ -23,12 +23,12 @@ const Header = () => {
   }, [searchTerm]);
   return (
     <>
-      <div className="w-full bg-blue-600 text-white h-16 fixed top-0">
+      <div className="w-full bg-blue-600 text-white h-14 md:h-16 fixed top-0">
         <div className="max-w-6xl mx-auto  ">
           <div className="flex items-center justify-between md:justify-start py-3 gap-11 px-5 md:px-0">
             <Link to="/">
               {" "}
-              <h1 className="text-2xl font-medium">Gig Quest</h1>
+              <h1 className="text-2xl font-medium cursor-pointer">Gig Quest</h1>
             </Link>
             <button
               onClick={() => dispatch(toggleMenu())}
@@ -41,8 +41,12 @@ const Header = () => {
               )}
             </button>
             <div className="hidden md:flex items-center gap-11">
-              <Link to="/">Job Postings</Link>
-              <Link to="/postJob">Post a Job</Link>
+              <Link to="/" className="cursor-pointer">
+                Job Postings
+              </Link>
+              <Link to="/postJob" className="cursor-pointer">
+                Post a Job
+              </Link>
 
               <div className="hidden md:flex relative ">
                 <div className="absolute end-0 inset-y-0 flex items-center ps-3 pointer-events-none">
@@ -63,19 +67,48 @@ const Header = () => {
 
             <motion.div
               initial={{ height: 0 }}
-              animate={{ height: isOpen ? "120px" : 0 }}
+              animate={{ height: isOpen ? "160px" : 0 }}
               transition={{
                 duration: 0.3,
                 ease: "easeInOut",
                 times: [0, 0.5, 1],
               }}
-              className="bg-blue-600 text-white overflow-hidden fixed top-[56px] left-0 w-full z-40 md:hidden"
+              className="bg-blue-600 text-white overflow-hidden fixed top-[56px] border-t h-[350px] left-0 w-full z-40 md:hidden"
             >
               <ul className="flex flex-col items-center space-y-3 py-4">
-                <li className="cursor-pointer">Home</li>
-                <li className="cursor-pointer">Jobs</li>
-                <li className="cursor-pointer">About</li>
-                <li className="cursor-pointer">Contact</li>
+                <li
+                  className="cursor-pointer border-b"
+                  onClick={() => dispatch(toggleMenu())}
+                >
+                  {" "}
+                  <Link to="/" className=" text-xl">
+                    Job Postings
+                  </Link>
+                </li>
+                <li
+                  className="cursor-pointer border-b"
+                  onClick={() => dispatch(toggleMenu())}
+                >
+                  {" "}
+                  <Link to="/postJob" className="text-xl">
+                    Post a Job
+                  </Link>
+                </li>
+                <li>
+                  <div className=" relative ">
+                    <div className="absolute end-0 inset-y-0 flex items-center ps-3 pointer-events-none">
+                      <CiSearch className="text-white  font-bold" size={20} />
+                    </div>
+                    <input
+                      type="text"
+                      name=""
+                      value={searchTerm}
+                      onChange={(e) => handleInputChange(e.target.value)}
+                      placeholder={`Search by job title`}
+                      className="py-2 pr-4 w-64  hover:outline-none outline-none text-white  border-b border-white"
+                    />
+                  </div>
+                </li>
               </ul>
             </motion.div>
           </div>

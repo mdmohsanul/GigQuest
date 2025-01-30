@@ -58,9 +58,9 @@ const PostJob = () => {
   return (
     <>
       <div className="max-w-6xl min-h-screen mx-auto pt-20">
-        <h1 className="text-2xl font-medium py-4">Post a Job</h1>
+        <h1 className="text-2xl font-medium pb-4 px-5 md:px-0">Post a Job</h1>
         <ToastContainer />
-        <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler} className="px-5 md:px-0">
           <div>
             <label htmlFor="jobTitle" className="">
               Job Title:{" "}
