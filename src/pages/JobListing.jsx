@@ -30,7 +30,7 @@ const JobListing = () => {
           className="p-6 mt-[64px]"
         >
           <div className="max-w-6xl mx-auto min-h-screen pt-14">
-            <h1 className="text-3xl font-medium ">All Jobs</h1>
+            <h1 className="text-3xl font-medium mx-12 md:mx-8">All Jobs</h1>
             <div className="py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-8 justify-items-center">
               {filteredList?.map((item) => (
                 <JobCard job={item} key={item._id} />
