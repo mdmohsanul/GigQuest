@@ -6,14 +6,12 @@ const JobDetails = () => {
   const { jobId } = useParams();
   const { jobs } = useSelector((state) => state.jobs);
   const findJob = jobs.find((item) => item._id === jobId);
-  console.log(jobId);
-  console.log(findJob);
 
   return (
     <>
       <div className="max-w-6xl min-h-screen pt-20 mx-auto">
-        <h1 className="text-2xl font-medium py-4">{findJob?.jobTitle}</h1>
-        <div className="p-5 border border-gray-300 rounded-md flex flex-col gap-4">
+        <h1 className="text-2xl font-medium py-4  mx-5">{findJob?.jobTitle}</h1>
+        <div className="p-5 border mx-5 border-gray-300 rounded-md flex flex-col gap-4">
           <p>
             <span className="font-medium">Company Name: </span>{" "}
             {findJob?.companyName}
@@ -38,7 +36,9 @@ const JobDetails = () => {
             <span className="font-medium">Qualifications: </span>
             <ol type="1">
               {findJob?.requiredQualifications.split(",").map((item, i) => (
-                <li key={i}>{item}</li>
+                <li key={i}>
+                  <span className="">{i + 1}. </span> {item}
+                </li>
               ))}
             </ol>
           </p>{" "}

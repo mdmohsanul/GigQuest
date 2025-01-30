@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addJob } from "../feature/jobSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { motion } from "framer-motion";
 
 const PostJob = () => {
   const dispatch = useDispatch();
+  const { isOpen } = useSelector((state) => state.navbar);
+
   const [jobDetails, setJobDetails] = useState({
     jobTitle: "",
     companyName: "",
@@ -57,8 +60,14 @@ const PostJob = () => {
   };
   return (
     <>
-      <div className="max-w-6xl min-h-screen mx-auto pt-20">
-        <h1 className="text-2xl font-medium pb-4 px-5 md:px-0">Post a Job</h1>
+      <motion.div
+        style={{ marginTop: isOpen ? "160px" : "0px" }}
+        // animate={{ marginTop: isOpen ? 120 : 0 }}
+        transition={{ duration: 0.9, ease: "easeInOut", times: [0, 0.5, 1] }}
+        className="p-6 mt-[64px]"
+      ></motion.div>
+      <div className="max-w-6xl min-h-screen mx-auto pt-5">
+        <h1 className="text-3xl font-medium pb-4 px-5 md:px-0">Post a Job</h1>
         <ToastContainer />
         <form onSubmit={submitHandler} className="px-5 md:px-0">
           <div>
@@ -163,6 +172,7 @@ const PostJob = () => {
           </button>
         </form>
       </div>
+      <motion />
     </>
   );
 };

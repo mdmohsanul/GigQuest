@@ -75,7 +75,7 @@ const Header = () => {
               }}
               className="bg-blue-600 text-white overflow-hidden fixed top-[56px] border-t h-[350px] left-0 w-full z-40 md:hidden"
             >
-              <ul className="flex flex-col items-center space-y-3 py-4">
+              <ul className="flex flex-col items-center justify-start space-y-3 py-4">
                 <li
                   className="cursor-pointer border-b"
                   onClick={() => dispatch(toggleMenu())}
