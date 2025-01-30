@@ -35,9 +35,9 @@ const Header = () => {
               className="md:hidden "
             >
               {isOpen ? (
-                <FaTimes size={30} className="text-slate-700" />
+                <FaTimes size={30} className="text-white" />
               ) : (
-                <FaBars size={30} className="text-slate-700" />
+                <FaBars size={30} className="text-white" />
               )}
             </button>
             <div className="hidden md:flex items-center gap-11">
