@@ -36,7 +36,11 @@ const JobDetails = () => {
           </p>
           <p>
             <span className="font-medium">Qualifications: </span>
-            {findJob?.requiredQualifications}
+            <ol type="1">
+              {findJob?.requiredQualifications.split(",").map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ol>
           </p>{" "}
         </div>
       </div>

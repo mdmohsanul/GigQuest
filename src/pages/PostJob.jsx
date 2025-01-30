@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addJob } from "../feature/jobSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PostJob = () => {
   const dispatch = useDispatch();
@@ -41,11 +43,23 @@ const PostJob = () => {
     e.preventDefault();
     if (!validateForm()) return;
     dispatch(addJob(jobDetails));
+    toast.success("Job added!");
+    setJobDetails((prev) => ({
+      ...prev,
+      jobTitle: "",
+      companyName: "",
+      location: "",
+      jobType: "",
+      jobDescription: "",
+      requiredQualifications: "",
+      salary: "",
+    }));
   };
   return (
     <>
       <div className="max-w-6xl min-h-screen mx-auto pt-20">
         <h1 className="text-2xl font-medium py-4">Post a Job</h1>
+        <ToastContainer />
         <form onSubmit={submitHandler}>
           <div>
             <label htmlFor="jobTitle" className="">
@@ -144,7 +158,7 @@ const PostJob = () => {
             ></textarea>
           </div>
           <p className="py-2 text-red-600">{error}</p>
-          <button className="rounded-md py-3 bg-blue-600 text-white px-5">
+          <button className="rounded-md py-3 bg-blue-600 text-white px-5 mb-9">
             Post Job
           </button>
         </form>
