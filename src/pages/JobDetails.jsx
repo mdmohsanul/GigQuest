@@ -32,8 +32,7 @@ const JobDetails = () => {
               {findJob?.location}
             </p>
             <p>
-              <span className="font-medium">Salary: </span>
-              {findJob?.salary}
+              <span className="font-medium">Salary: </span>$ {findJob?.salary}
             </p>
             <p>
               <span className="font-medium">Job Type: </span>
