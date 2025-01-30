@@ -19,7 +19,7 @@ const JobDetails = () => {
         className="p-6 mt-[64px]"
       >
         <div className="max-w-6xl min-h-screen pt-10 mx-auto">
-          <h1 className="text-2xl font-medium py-4  mx-5">
+          <h1 className="text-3xl font-medium  py-4  mx-5">
             {findJob?.jobTitle}
           </h1>
           <div className="p-5 border mx-5 border-gray-300 rounded-md flex flex-col gap-4">

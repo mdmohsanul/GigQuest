@@ -66,7 +66,7 @@ const PostJob = () => {
         transition={{ duration: 0.9, ease: "easeInOut", times: [0, 0.5, 1] }}
         className="p-6 mt-[64px]"
       >
-        <div className="max-w-6xl min-h-screen mx-auto pt-5">
+        <div className="max-w-6xl min-h-screen mx-auto pt-14">
           <h1 className="text-3xl font-medium pb-4 px-5 md:px-0">Post a Job</h1>
           <ToastContainer />
           <form onSubmit={submitHandler} className="px-5 md:px-0">
